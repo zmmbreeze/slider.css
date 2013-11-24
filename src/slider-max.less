@@ -1,0 +1,124 @@
+//
+// slider.css, pure css slide.
+//
+// Maximize module
+//
+// author: zmmbreeze
+// license: MIT
+//
+
+.label() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border: 2px solid #CCC;
+        .transition(border-color 0.5s);
+    }
+    &::before {
+        border-left-width: 0;
+        border-bottom-width: 0;
+    }
+    &::after {
+        border-right-width: 0;
+        border-top-width: 0;
+    }
+    &:hover::before,
+    &:hover::after {
+        border-color: #666;
+    }
+}
+
+.min-label() {
+    &::before {
+        top: 5px;
+        right: 5px;
+    }
+    &::after {
+        bottom: 5px;
+        left: 5px;
+    }
+    &:hover::before {
+        top: 4px;
+        right: 4px;
+    }
+    &:hover::after {
+        bottom: 4px;
+        left: 4px;
+    }
+}
+
+.max-label() {
+    &::before {
+        top: 4px;
+        right: 4px;
+    }
+    &::after {
+        bottom: 4px;
+        left: 4px;
+    }
+    &:hover::before {
+        top: 5px;
+        right: 5px;
+    }
+    &:hover::after {
+        bottom: 5px;
+        left: 5px;
+    }
+}
+
+.checkbox() {
+    display: none;
+}
+
+.min-slider() {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+    z-index: 0;
+}
+
+.max-slider() {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+
+
+#slider-max {
+    .checkbox();
+}
+.slider > label {
+    .label();
+}
+.slider > label {
+    .min-label();
+}
+#slider-max:checked + .slider > label,
+.slider > label {
+    .max-label();
+}
+.slider {
+    .min-slider();
+}
+#slider-max:checked + .slider {
+    .max-slider();
+}
+
+

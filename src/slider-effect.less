@@ -1,0 +1,33 @@
+//
+// slider.css, pure css slide.
+//
+// Effect module
+//
+// author: zmmbreeze
+// license: MIT
+//
+
+#slider-default:target ~ section[default]:first-of-type {
+    left: 0;
+    z-index: 2;
+    opacity: 1;
+}
+.slider {
+    > section {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        z-index: 1;
+        display: block;
+        opacity: 0;
+        .transition(left ease-in-out 0.5s, opacity 1s);
+    }
+    > :target ~ section {
+        left: 100%;
+    }
+    > :target {
+        left: 0;
+        z-index: 2;
+        opacity: 1;
+    }
+}

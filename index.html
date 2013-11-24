@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>overconstrain</title>
+    <link rel="stylesheet/less" href="src/slider.less" />
+    <script type="text/javascript" src="less-1.5.0.min.js"></script>
+    <style type="text/css">
+    body {
+        margin: 0;
+        color: #333;
+        line-height: 2;
+    }
+    h1 {
+        text-align: center;
+        font-weight: normal;
+        font-size: 2em;
+        line-height: 1;
+    }
+    h2 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    h1 {
+        margin: 20px auto;
+        width: 610px;
+        overflow: hidden;
+    }
+    .row {
+        padding: 10px;
+        width: 100%;
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .placeholder {
+        margin: 20px auto;
+        padding: 0;
+        width: 630px;
+    }
+
+    .container {
+        float: left;
+        margin-right: 10px;
+        clear: left;
+        position: relative;
+        width: 300px;
+        height: 190px;
+        overflow: hidden;
+        background: #E6E9ED;
+    }
+    .container > [demo] {
+        background: #3BAFDA;
+        -webkit-transition: all ease-in-out 0.5s;
+        transition: all ease-in-out 0.5s;
+    }
+
+    .text {
+        overflow: hidden;
+    }
+    .text pre {
+        margin: 0;
+        padding: 0;
+        line-height: 16px;
+        font-size: 14px;
+        background: #FEFEFE;
+    }
+
+    </style>
+</head>
+<body>
+<div class="placeholder">
+    <div style="width: 630px;height: 210px;">
+
+    <input id="slider-max" type="checkbox"/>
+    <article class="slider">
+    <a id="slider-default"></a>
+    <label for="slider-max" title="Maximize"></label>
+
+    <section id="slider-1" default>
+        <h1>CSS `margin:auto`的妙用</h1>
+    </section>
+    <section id="slider-2">
+    <div class="row" >
+        <div class="container">
+            <div class="demo-1" demo></div>
+        </div>
+        <div class="text">
+            <h2>靠左</h2>
+            <pre>.demo-1 {
+    width: 100px;
+    height: 100px;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-3">
+    <div class="row" >
+        <div class="container">
+            <div class="demo-2" demo></div>
+        </div>
+        <div class="text">
+            <h2>靠右 (overconstrained)</h2>
+            <pre>.demo-2 {
+    margin: 0 0 0 auto;
+    width: 100px;
+    height: 100px;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-4">
+    <div class="row">
+        <div class="container">
+            <div class="demo-3" demo></div>
+        </div>
+        <div class="text">
+            <h2>横向居中</h2>
+            <pre>.demo-3 {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-5">
+    <div class="row">
+        <div class="container">
+            <div class="demo-4" demo></div>
+        </div>
+        <div class="text">
+            <h2>平铺（IE8+）</h2>
+            <pre>.demo-4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-6">
+    <div class="row">
+        <div class="container">
+            <div class="demo-5" demo></div>
+        </div>
+        <div class="text">
+            <h2>靠左下角</h2>
+            <pre>.demo-5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    margin: auto 0 0 0;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-7">
+    <div class="row">
+        <div class="container">
+            <div class="demo-6" demo></div>
+        </div>
+        <div class="text">
+            <h2>靠右下角</h2>
+            <pre>.demo-6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    margin: auto 0 0 auto;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-8">
+    <div class="row">
+        <div class="container">
+            <div class="demo-7" demo></div>
+        </div>
+        <div class="text">
+            <h2>垂直居中</h2>
+            <pre>.demo-7 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    margin: auto 0;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-9">
+    <div class="row">
+        <div class="container">
+            <div class="demo-8" demo></div>
+        </div>
+        <div class="text">
+            <h2>居中</h2>
+            <pre>.demo-8 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <section id="slider-10">
+    <div class="row">
+        <div class="container">
+            <img class="demo-9" demo src="http://placehold.it/600x400/3BAFDA/FFFFFF" width="600" height="400"/>
+        </div>
+        <div class="text">
+            <h2>图片居中</h2>
+            <pre>img.demo-9 {
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    right: -10000px;
+    bottom: -10000px;
+    margin: auto;
+}</pre>
+        </div>
+    </div>
+    </section>
+
+    <div id="slider">
+        <a href="#slider-default" class="slider-start">GO TO START</a>
+    </div>
+    </article>
+
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var pres = document.getElementsByTagName('pre');
+        var pre;
+        var styles;
+        var style;
+        for (var i = 0, l = pres.length; i < l; i++) {
+            pre = pres[i];
+
+            // create style
+            style = document.createElement('style');
+            style.type = 'text/css';
+            pre.parentNode.insertBefore(style, pre);
+            styles = pre.innerHTML;
+            if (style.styleSheet) {
+                style.styleSheet.cssText = styles;
+            }
+            else {
+                style.appendChild(document.createTextNode(styles));
+            }
+
+            // beautify code
+        }
+    </script>
+</body>
+</html>

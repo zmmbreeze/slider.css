@@ -1,0 +1,56 @@
+//
+// slider.css, pure css slide.
+//
+// Util module
+//
+// author: zmmbreeze
+// license: MIT
+//
+
+.triangle-base(@width, @height) {
+    border: 0 solid transparent;
+    border-top-width: @width;
+    border-bottom-width: @width;
+    border-left-width: @height;
+    border-right-width: @height;
+}
+.triangle-left(@color, @width, @height) {
+    .triangle-base(@width, @height);
+    border-left-color: @color;
+}
+.triangle-top(@color, @width, @height) {
+    .triangle-base(@width, @height);
+    border-top-color: @color;
+}
+.triangle-bottom(@color, @width, @height) {
+    .triangle-base(@width, @height);
+    border-bottom-color: @color;
+}
+.triangle-right(@color, @width, @height) {
+    .triangle-base(@width, @height);
+    border-right-color: @color;
+}
+
+
+.transition(@transition, ...) {
+    @transitions: ~`"@{arguments}".replace(/[\[\]]/g, "")`;
+    @webkit-transitions: ~`"@{transitions}".replace(/(transform|perspective)/g, "-webkit-$1")`;
+    -webkit-transition: @webkit-transitions;
+    transition: @transitions;
+}
+
+.box-sizing(@value: border-box) {
+    -webkit-box-sizing: @value;
+    -moz-box-sizing: @value;
+    box-sizing: @value;
+}
+
+.transform(@value) {
+    -webkit-transform: @value;
+    transform: @value;
+}
+
+.transform-origin(@value) {
+    -webkit-transform-origin: @value;
+    transform-origin: @value;
+}

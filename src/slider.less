@@ -1,0 +1,112 @@
+//
+// slider.css, pure css slide.
+//
+// Basic module
+//
+// author: zmmbreeze
+// license: MIT
+//
+
+@import "util.less";
+
+.slider {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    // firefox/chrome has bug on `slider > :target ~ section` selector
+    // if it's `overflow:hidden`
+    overflow: visible !important;
+    background: #FFF;
+    .box-sizing();
+    border: 1px solid #CCC;
+    box-shadow: 2px 2px 0 #DDD;
+}
+
+.slider {
+    > section {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: none;
+    }
+    // target style
+    > section:target {
+        display: block;
+    }
+}
+
+// default target style
+#slider-default:target ~ section[default]:first-of-type {
+    display: block;
+}
+
+// slider start
+#slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    display: block;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+
+    .slider-start {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -30px;
+        margin-left: -25px;
+        width: 0;
+        height: 0;
+        text-indent: -9999px;
+        .triangle-left(#EEE, 30px, 50px);
+        .transition(all 0.5s);
+        .transform(rotate(10deg));
+        .transform-origin(bottom left);
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -50px;
+            .triangle-left(#CCC, 30px, 50px);
+            .transition(all 0.5s);
+        }
+        &:before {
+            z-index: 2;
+            .transform(rotate(-10deg));
+            .transform-origin(bottom left);
+        }
+        &:after {
+            z-index: 1;
+            border-left-color: #DDD;
+            .transform(rotate(-6deg));
+            .transform-origin(bottom left);
+        }
+    }
+    .slider-start:hover {
+        .transform(rotate(0));
+        &:before,
+        &:after {
+            .transform(rotate(0));
+        }
+        &:before {
+            border-left-color: #999;
+        }
+    }
+}
+.slider > section:target ~ #slider,
+#slider-default:target ~ #slider {
+    display: none;
+}
+
+
+
+@import "slider-effect.less";
+@import "slider-max.less";
