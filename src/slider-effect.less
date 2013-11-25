@@ -9,25 +9,26 @@
 
 #slider-default:target ~ section[default]:first-of-type {
     left: 0;
+    width: 100%;
     z-index: 2;
-    opacity: 1;
 }
 .slider {
     > section {
         position: absolute;
         top: 0;
         left: -100%;
+        width: 0;   // must setup width's animation
         z-index: 1;
-        display: block;
-        opacity: 0;
-        .transition(left ease-in-out 0.5s, opacity 1s);
+        .transition(left 0.5s, width 0.5s, opacity 1s);
     }
     > :target ~ section {
         left: 100%;
+        width: 0;
     }
     > :target {
         left: 0;
+        width: 100%;
         z-index: 2;
-        opacity: 1;
     }
 }
+
