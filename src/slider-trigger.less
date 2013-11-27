@@ -7,8 +7,86 @@
 // license: MIT
 //
 
-.slider {
-    > section:target {
-        
+#slider-default:target ~ section[default]:first-of-type + div,
+.slider > section:target + div {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    // 10% x 10%
+    width: 10%;
+    height: 0;
+    padding-bottom: 5%;
+    overflow: hidden;
+
+    // responsive triangle style
+    > a:first-child,
+    > a:nth-child(2) {
+        position: absolute;
+        top: 10%;
+        width: 40%;
+        height: 80%;
+        opacity: 0.05;
+        background-color: #13daec;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            width: 200%;
+            height: 200%;
+            background-color: #FFF;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+    }
+    > a:first-child {
+        &::before,
+        &::after {
+            left: auto;
+            right: 0;
+        }
+        &::before {
+            .transform(rotate(60deg));
+            .transform-origin(right top);
+        }
+        &::after {
+            .transform(rotate(-60deg));
+            .transform-origin(right bottom);
+        }
+    }
+    > a:nth-child(2) {
+        &::before {
+            .transform(rotate(-60deg));
+            .transform-origin(left top);
+        }
+        &::after {
+            .transform(rotate(60deg));
+            .transform-origin(left bottom);
+        }
+    }
+
+    // clickable
+    > a[href]:first-child,
+    > a[href]:nth-child(2) {
+        opacity: 1;
+    }
+
+    // prev trigger style
+    > a:first-child {
+        left: 0;
+    }
+
+    // next trigger style
+    > a:nth-child(2) {
+        right: 0;
     }
 }
+
+

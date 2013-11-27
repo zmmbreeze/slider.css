@@ -65,8 +65,8 @@
         .transform(rotate(10deg));
         .transform-origin(bottom left);
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
             content: '';
             position: absolute;
             top: -30px;
@@ -74,12 +74,12 @@
             .triangle-left(#CCC, 30px, 50px);
             .transition(all 0.5s);
         }
-        &:before {
+        &::before {
             z-index: 2;
             .transform(rotate(-10deg));
             .transform-origin(bottom left);
         }
-        &:after {
+        &::after {
             z-index: 1;
             border-left-color: #DDD;
             .transform(rotate(-6deg));
@@ -88,11 +88,11 @@
     }
     .slider-start:hover {
         .transform(rotate(0));
-        &:before,
+        &::before,
         &:after {
             .transform(rotate(0));
         }
-        &:before {
+        &::before {
             border-left-color: #999;
         }
     }
