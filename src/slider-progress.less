@@ -1,0 +1,26 @@
+
+.slider-progress {
+    .flow-from(slider-progress);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    width: 100%;
+    height: 2px;
+}
+
+.slider {
+    > section + div > span {
+        content: '';
+        .flow-into(slider-progress);
+        .flex(1);
+        height: 100%;
+        background-color: #13daec;
+    }
+    #slider-default:target ~ section[default]:first-of-type,
+    > section:target {
+        left: 0;
+        width: 100%;
+        z-index: 2;
+    }
+}
