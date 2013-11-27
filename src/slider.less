@@ -39,70 +39,8 @@
     }
 }
 
-// slider start
-#slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 101;
-    display: block;
-    opacity: 1;
-    width: 100%;
-    height: 100%;
-    background-color: #FFF;
 
-    .slider-start {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -30px;
-        margin-left: -25px;
-        width: 0;
-        height: 0;
-        text-indent: -9999px;
-        .triangle-left(#EEE, 30px, 50px);
-        .transition(all 0.5s);
-        .transform(rotate(10deg));
-        .transform-origin(bottom left);
-
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: -50px;
-            .triangle-left(#CCC, 30px, 50px);
-            .transition(all 0.5s);
-        }
-        &::before {
-            z-index: 2;
-            .transform(rotate(-10deg));
-            .transform-origin(bottom left);
-        }
-        &::after {
-            z-index: 1;
-            border-left-color: #DDD;
-            .transform(rotate(-6deg));
-            .transform-origin(bottom left);
-        }
-    }
-    .slider-start:hover {
-        .transform(rotate(0));
-        &::before,
-        &:after {
-            .transform(rotate(0));
-        }
-        &::before {
-            border-left-color: #999;
-        }
-    }
-}
-.slider > section:target ~ #slider,
-#slider-default:target ~ #slider {
-    display: none;
-}
-
-
+@import "slider-start.less";
 @import "slider-trigger.less";
 @import "slider-max.less";
 @import "slider-effect.less";
