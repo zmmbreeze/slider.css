@@ -7,11 +7,6 @@
 // license: MIT
 //
 
-#slider-default:target ~ section[default]:first-of-type {
-    left: 0;
-    width: 100%;
-    z-index: 2;
-}
 .slider {
     > section {
         position: absolute;
@@ -21,11 +16,12 @@
         z-index: 1;
         .transition(left 0.5s, width 0.5s, opacity 1s);
     }
-    > :target ~ section {
+    > section:target ~ section {
         left: 100%;
         width: 0;
     }
-    > :target {
+    #slider-default:target ~ section[default]:first-of-type,
+    > section:target {
         left: 0;
         width: 100%;
         z-index: 2;

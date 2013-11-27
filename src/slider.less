@@ -32,14 +32,11 @@
         .transition(opacity 1s);
     }
     // target style
+    // default target style
+    #slider-default:target ~ section[default]:first-of-type,
     > section:target {
         opacity: 1;
     }
-}
-
-// default target style
-#slider-default:target ~ section[default]:first-of-type {
-    opacity: 1;
 }
 
 // slider start
