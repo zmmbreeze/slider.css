@@ -11,15 +11,6 @@
         color: #333;
         line-height: 2;
     }
-    .row {
-        padding: 10px;
-        width: 100%;
-        overflow: hidden;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        height: 100%;
-    }
 
     .placeholder {
         margin: 20px auto;
@@ -66,8 +57,10 @@
     <label for="slider-max" title="Maximize"></label>
 
     <section id="slider-1" default>
-        <h1>Slider.css</h1>
-        <p>Slide without javascript.</p>
+        <div class="center">
+            <h1>Slider.css</h1>
+            <p>HTML presentation without javascript.</p>
+        </div>
     </section>
     <div>
         <a></a>
@@ -76,18 +69,14 @@
     </div>
 
     <section id="slider-2">
-    <div class="row" >
-        <div class="container">
-            <div class="demo-1" demo></div>
+        <div class="vertical-center">
+            <dl>
+                <dt>Why world needs another HTML presentation plugin?</dt>
+                <dd>I need a lightweight HTML slide.</dd>
+                <dd>CSS is powerful enough to make slides.</dd>
+                <dd>It's cool & fun!</dd>
+            </dl>
         </div>
-        <div class="text">
-            <h2>靠左</h2>
-            <pre>.demo-1 {
-    width: 100px;
-    height: 100px;
-}</pre>
-        </div>
-    </div>
     </section>
     <div>
         <a href="#slider-1"></a>
@@ -96,19 +85,9 @@
     </div>
 
     <section id="slider-3">
-    <div class="row" >
-        <div class="container">
-            <div class="demo-2" demo></div>
+        <div class="center">
+            <h2>Why slider.css?</h2>
         </div>
-        <div class="text">
-            <h2>靠右 (overconstrained)</h2>
-            <pre>.demo-2 {
-    margin: 0 0 0 auto;
-    width: 100px;
-    height: 100px;
-}</pre>
-        </div>
-    </div>
     </section>
     <div>
         <a href="#slider-2"></a>
@@ -117,19 +96,12 @@
     </div>
 
     <section id="slider-4">
-    <div class="row">
-        <div class="container">
-            <div class="demo-3" demo></div>
+        <div class="center width60">
+            <ul>
+                <li>No javascript.</li>
+                <li>Lightweight but powerful enough.</li>
+            </ul>
         </div>
-        <div class="text">
-            <h2>横向居中</h2>
-            <pre>.demo-3 {
-    width: 100px;
-    height: 100px;
-    margin: auto;
-}</pre>
-        </div>
-    </div>
     </section>
     <div>
         <a href="#slider-3"></a>
@@ -138,22 +110,17 @@
     </div>
 
     <section id="slider-5">
-    <div class="row">
-        <div class="container">
-            <div class="demo-4" demo></div>
+        <div class="center width80">
+            <h2>Feature</h2>
+            <ul>
+                <li>Forward / Backward</li>
+                <li>Transitions</li>
+                <li>Progressbar<small>(Chrome #enable-experimental-web-platform-features)</small></li>
+                <li>Maximize / Minimize</li>
+                <li>Page number</li>
+                <li>Basic layout</li>
+            </ul>
         </div>
-        <div class="text">
-            <h2>平铺（IE8+）</h2>
-            <pre>.demo-4 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-}</pre>
-        </div>
-    </div>
     </section>
     <div>
         <a href="#slider-4"></a>
@@ -162,24 +129,9 @@
     </div>
 
     <section id="slider-6">
-    <div class="row">
-        <div class="container">
-            <div class="demo-5" demo></div>
+        <div class="center">
+            <h2>How to start?</h2>
         </div>
-        <div class="text">
-            <h2>靠左下角</h2>
-            <pre>.demo-5 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-    margin: auto 0 0 0;
-}</pre>
-        </div>
-    </div>
     </section>
     <div>
         <a href="#slider-5"></a>
@@ -188,24 +140,39 @@
     </div>
 
     <section id="slider-7">
-    <div class="row">
-        <div class="container">
-            <div class="demo-6" demo></div>
+        <div class="center">
+            <pre>&lt;div style=&quot;width: 640px;height: 400px;&quot;&gt;
+    &lt;!-- Maximize  --&gt;
+    &lt;input id=&quot;slider-max&quot; type=&quot;checkbox&quot;/&gt;
+    &lt;article class=&quot;slider slider-indicator&quot;&gt;
+    &lt;a id=&quot;slider-default&quot;&gt;&lt;/a&gt;
+    &lt;label for=&quot;slider-max&quot; title=&quot;Maximize&quot;&gt;&lt;/label&gt;
+
+    &lt;section id=&quot;slider-1&quot; default&gt;
+        &lt;!-- layout --&gt;
+        &lt;div&gt;
+            &lt;h1&gt;Slider.css&lt;/h1&gt;
+            &lt;p&gt;HTML presentation without javascript.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;div&gt;
+        &lt;!-- triggers --&gt;
+        &lt;a&gt;&lt;/a&gt;
+        &lt;a href=&quot;#slider-2&quot;&gt;&lt;/a&gt;
+        &lt;!-- progressbar --&gt;
+        &lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;!-- start page --&gt;
+    &lt;div id=&quot;slider&quot;&gt;
+        &lt;a href=&quot;#slider-default&quot; class=&quot;slider-start&quot;&gt;GO TO START&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- progressbar container --&gt;
+    &lt;div class=&quot;slider-progress&quot;&gt;&lt;/div&gt;
+    &lt;/article&gt;
+&lt;/div&gt;</pre>
         </div>
-        <div class="text">
-            <h2>靠右下角</h2>
-            <pre>.demo-6 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-    margin: auto 0 0 auto;
-}</pre>
-        </div>
-    </div>
     </section>
     <div>
         <a href="#slider-6"></a>

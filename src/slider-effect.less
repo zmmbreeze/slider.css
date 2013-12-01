@@ -14,7 +14,8 @@
         left: -100%;
         width: 0;   // must setup width's animation
         z-index: 1;
-        .transition(left 0.5s, width 0.5s, opacity 1s);
+        // `width 0.01s` to fix bug
+        .transition(left 0.5s, width 0.01s, opacity 1s);
     }
     #slider-default:target ~ section[default]:first-of-type ~ section,
     > section:target ~ section {

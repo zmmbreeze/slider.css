@@ -7,16 +7,20 @@
 // license: MIT
 //
 
-#slider-default:target ~ section[default]:first-of-type + div,
-.slider > section:target + div {
+.slider > section + div {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    z-index: 99;
-    // 10% x 10%
+    z-index: 98;
+    // 10% x 5%
     width: 10%;
     height: 0;
     padding-bottom: 5%;
+}
+
+#slider-default:target ~ section[default]:first-of-type + div,
+.slider > section:target + div {
+    z-index: 99;
 
     // responsive triangle style
     > a:first-child,
@@ -26,6 +30,7 @@
         width: 40%;
         height: 80%;
         opacity: 0.05;
+        overflow: hidden;
         background-color: #13daec;
 
         &::before,

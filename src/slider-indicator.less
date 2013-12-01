@@ -29,3 +29,13 @@
         }
     }
 }
+
+// Maximize style
+#slider-max:checked + .slider-indicator {
+    #slider-default:target ~ section[default]:first-of-type,
+    > section:target {
+        &::before {
+            font-size: 32px;
+        }
+    }
+}
