@@ -33,7 +33,9 @@
 // rotate effect
 .slider {
     > section.rotate {
-        left: 0;    // reset
+        // reset
+        left: 0;
+        width: 100%;
         -webkit-transform-style: preserve-3d;
         -moz-transform-style: preserve-3d;
         -ms-transform-style: preserve-3d;
@@ -41,14 +43,20 @@
         .transition(-webkit-transform-origin 800ms cubic-bezier(0.26,.86,.44,.985), -webkit-transform 800ms cubic-bezier(0.26,.86,.44,.985), opacity 800ms);
         .transition(-ms-transform-origin 800ms cubic-bezier(0.26,.86,.44,.985), -ms-transform 800ms cubic-bezier(0.26,.86,.44,.985), opacity 800ms);
         .transition(transform-origin 800ms cubic-bezier(0.26,.86,.44,.985), transform 800ms cubic-bezier(0.26,.86,.44,.985), opacity 800ms);
+        // before style
+        .transform(translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0));
     }
     #slider-default:target ~ section[default]:first-of-type ~ section.rotate,
     > section:target ~ section.rotate {
-        left: 0;    // reset
-        .transform(translate3d(-100%,0,0) rotateY(-90deg) translate3d(-100%,0,0));
+        // reset
+        left: 0;
+        width: 100%;
+        // after style
+        .transform(translate3d(100%,0,0) rotateY(90deg) translate3d(100%,0,0));
     }
     #slider-default:target ~ section.rotate[default]:first-of-type,
     > section.rotate:target {
+        // current
         .transform(none);
     }
 }
