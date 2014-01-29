@@ -1,0 +1,605 @@
+.slider {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #FFF;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #CCC;
+  box-shadow: 2px 2px 0 #DDD;
+  -webkit-transition: -webkit-perspective, 0.4s, ease;
+  transition: perspective, 0.4s, ease;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+  -ms-perspective: 600px;
+  perspective: 600px;
+  -webkit-perspective-origin: 0 -100px;
+  -moz-perspective-origin: 0 -100px;
+  -ms-perspective-origin: 0 -100px;
+  perspective-origin: 0 -100px;
+}
+.slider > section {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: opacity, 1s;
+  transition: opacity, 1s;
+}
+.slider #slider-default:target ~ section[default]:first-of-type,
+.slider > section:target {
+  opacity: 1;
+}
+#slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  display: block;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+}
+#slider .slider-start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -25px;
+  width: 0;
+  height: 0;
+  text-indent: -9999px;
+  border: 0 solid transparent;
+  border-top-width: 30px;
+  border-bottom-width: 30px;
+  border-left-width: 50px;
+  border-right-width: 50px;
+  border-left-color: #cccccc;
+  -webkit-transition: all, 1.5s;
+  transition: all, 1.5s;
+}
+#slider .slider-start:hover {
+  border-left-color: #13daec;
+}
+.slider > section:target ~ #slider,
+#slider-default:target ~ #slider {
+  display: none;
+}
+.slider > section + div {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 98;
+  width: 10%;
+  height: 0;
+  padding-bottom: 5%;
+}
+#slider-default:target ~ section[default]:first-of-type + div,
+.slider > section:target + div {
+  z-index: 99;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child,
+.slider > section:target + div > a:first-child,
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2),
+.slider > section:target + div > a:nth-child(2) {
+  position: absolute;
+  top: 10%;
+  width: 40%;
+  height: 80%;
+  opacity: 0.05;
+  overflow: hidden;
+  background-color: #13daec;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::before,
+.slider > section:target + div > a:first-child::before,
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2)::before,
+.slider > section:target + div > a:nth-child(2)::before,
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::after,
+.slider > section:target + div > a:first-child::after,
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2)::after,
+.slider > section:target + div > a:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 200%;
+  height: 200%;
+  background-color: #FFF;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::before,
+.slider > section:target + div > a:first-child::before,
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2)::before,
+.slider > section:target + div > a:nth-child(2)::before {
+  top: 0;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::after,
+.slider > section:target + div > a:first-child::after,
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2)::after,
+.slider > section:target + div > a:nth-child(2)::after {
+  bottom: 0;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::before,
+.slider > section:target + div > a:first-child::before,
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::after,
+.slider > section:target + div > a:first-child::after {
+  left: auto;
+  right: 0;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::before,
+.slider > section:target + div > a:first-child::before {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+  -webkit-transform-origin: right top;
+  transform-origin: right top;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child::after,
+.slider > section:target + div > a:first-child::after {
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2)::before,
+.slider > section:target + div > a:nth-child(2)::before {
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2)::after,
+.slider > section:target + div > a:nth-child(2)::after {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+  -webkit-transform-origin: left bottom;
+  transform-origin: left bottom;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a[href]:first-child,
+.slider > section:target + div > a[href]:first-child,
+#slider-default:target ~ section[default]:first-of-type + div > a[href]:nth-child(2),
+.slider > section:target + div > a[href]:nth-child(2) {
+  opacity: 1;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:first-child,
+.slider > section:target + div > a:first-child {
+  left: 0;
+}
+#slider-default:target ~ section[default]:first-of-type + div > a:nth-child(2),
+.slider > section:target + div > a:nth-child(2) {
+  right: 0;
+}
+.slider-indicator {
+  counter-reset: slider;
+}
+.slider-indicator > section {
+  counter-increment: slider;
+}
+.slider-indicator #slider-default:target ~ section[default]:first-of-type::before,
+.slider-indicator > section:target::before {
+  content: counter(slider);
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-size: 16px;
+  line-height: 1em;
+  height: 1em;
+  color: #666;
+}
+#slider-max:checked + .slider-indicator #slider-default:target ~ section[default]:first-of-type::before,
+#slider-max:checked + .slider-indicator > section:target::before {
+  font-size: 32px;
+}
+.slider-progress {
+  -webkit-flow-from: slider-progress;
+  -ms-flow-from: slider-progress;
+  flow-from: slider-progress;
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  z-index: 99;
+  height: 5px;
+  background-color: #E6E9ED;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+.slider > section + div > span {
+  -webkit-flow-into: slider-progress;
+  -ms-flow-into: slider-progress;
+  flow-into: slider-progress;
+  width: 10px;
+  height: 100%;
+  float: left;
+  background-color: #13daec;
+}
+.slider #slider-default:target ~ section[default]:first-of-type ~ section + div > span,
+.slider > section:target ~ section + div > span {
+  background-color: transparent;
+}
+#slider-max:checked + .slider .slider-progress {
+  height: 10px;
+}
+#slider-max:checked + .slider > section + div > span {
+  width: 20px;
+}
+.slider > section {
+  font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+}
+.slider > section .serif {
+  font-family: Georgia, serif;
+}
+.slider > section .sans-serif {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.slider > section .vertical-center {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 1em;
+  right: 1em;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.slider > section .vertical-center :first-child {
+  margin-top: 0;
+}
+.slider > section .vertical-center :last-child {
+  margin-bottom: 0;
+}
+.slider > section .center {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.slider > section .center :first-child {
+  margin-top: 0;
+}
+.slider > section .center :last-child {
+  margin-bottom: 0;
+}
+.slider > section .center h1,
+.slider > section .center h2,
+.slider > section .center h3,
+.slider > section .center h4,
+.slider > section .center h5,
+.slider > section .center h6,
+.slider > section .center p,
+.slider > section .center div {
+  text-align: center;
+}
+.slider > section .row {
+  margin: 1em 1em 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+.slider > section .row + .row {
+  margin-top: 0;
+}
+.slider > section .row .column {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.slider > section .width10 {
+  padding: 0 1em;
+  width: 10%;
+  box-sizing: border-box;
+}
+.slider > section .width20 {
+  padding: 0 1em;
+  width: 20%;
+  box-sizing: border-box;
+}
+.slider > section .width30 {
+  padding: 0 1em;
+  width: 30%;
+  box-sizing: border-box;
+}
+.slider > section .width40 {
+  padding: 0 1em;
+  width: 40%;
+  box-sizing: border-box;
+}
+.slider > section .width50 {
+  padding: 0 1em;
+  width: 50%;
+  box-sizing: border-box;
+}
+.slider > section .width60 {
+  padding: 0 1em;
+  width: 60%;
+  box-sizing: border-box;
+}
+.slider > section .width70 {
+  padding: 0 1em;
+  width: 70%;
+  box-sizing: border-box;
+}
+.slider > section .width80 {
+  padding: 0 1em;
+  width: 80%;
+  box-sizing: border-box;
+}
+.slider > section .width90 {
+  padding: 0 1em;
+  width: 90%;
+  box-sizing: border-box;
+}
+.slider > section .width100 {
+  padding: 0 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+.slider > section > div {
+  margin: 1em;
+}
+.slider > section h1,
+.slider > section h2,
+.slider > section h3,
+.slider > section h4,
+.slider > section h5,
+.slider > section h6 {
+  font-family: Georgia, serif;
+  margin: 0;
+  padding: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.slider > section h4,
+.slider > section h5,
+.slider > section h6 {
+  font-size: 1em;
+}
+.slider > section h2 {
+  line-height: 1;
+  font-size: 2em;
+}
+.slider > section h1 {
+  margin-top: 1em;
+  line-height: 1;
+  font-size: 3em;
+}
+.slider > section p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 1em;
+}
+.slider > section dt {
+  margin: 0;
+  padding: 0 0 0.5em 0;
+  font-size: 1.5em;
+  line-height: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.slider > section dd {
+  position: relative;
+  margin: 0 0 0 1em;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 1em;
+}
+.slider > section dd::before {
+  content: '- ';
+}
+.slider > section pre {
+  margin: 0;
+  padding: 1em;
+  line-height: 1;
+  font-size: 14px;
+}
+.slider > section ul,
+.slider > section ol {
+  margin: 0;
+  padding: 0 0 0 2em;
+}
+.slider > section small {
+  font-size: 80%;
+  color: #666;
+}
+#slider-max:checked + .slider > section {
+  font-size: 32px;
+}
+#slider-max {
+  display: none;
+}
+.slider > label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 102;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.slider > label::before,
+.slider > label::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 2px solid #CCC;
+  -webkit-transition: border-color, 0.5s;
+  transition: border-color, 0.5s;
+}
+.slider > label::before {
+  border-left-width: 0;
+  border-bottom-width: 0;
+}
+.slider > label::after {
+  border-right-width: 0;
+  border-top-width: 0;
+}
+.slider > label:hover::before,
+.slider > label:hover::after {
+  border-color: #666;
+}
+.slider > label::before {
+  top: 5px;
+  right: 5px;
+}
+.slider > label::after {
+  bottom: 5px;
+  left: 5px;
+}
+.slider > label:hover::before {
+  top: 4px;
+  right: 4px;
+}
+.slider > label:hover::after {
+  bottom: 4px;
+  left: 4px;
+}
+#slider-max:checked + .slider > label::before,
+.slider > label::before {
+  top: 4px;
+  right: 4px;
+}
+#slider-max:checked + .slider > label::after,
+.slider > label::after {
+  bottom: 4px;
+  left: 4px;
+}
+#slider-max:checked + .slider > label:hover::before,
+.slider > label:hover::before {
+  top: 5px;
+  right: 5px;
+}
+#slider-max:checked + .slider > label:hover::after,
+.slider > label:hover::after {
+  bottom: 5px;
+  left: 5px;
+}
+.slider {
+  position: relative;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  right: auto;
+  z-index: 0;
+}
+#slider-max:checked + .slider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+}
+.slider > section {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 0;
+  z-index: 1;
+  -webkit-transition: left 0.5s, width 0.01s, opacity 1s;
+  transition: left 0.5s, width 0.01s, opacity 1s;
+}
+.slider #slider-default:target ~ section[default]:first-of-type ~ section,
+.slider > section:target ~ section {
+  left: 100%;
+  width: 0;
+}
+.slider #slider-default:target ~ section[default]:first-of-type,
+.slider > section:target {
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+.slider > section.rotate {
+  left: 0;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit--webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transition: -ms--webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: -ms-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transition: -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-135deg) translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0) rotateY(-135deg) translate3d(-100%, 0, 0);
+}
+.slider #slider-default:target ~ section[default]:first-of-type ~ section.rotate,
+.slider > section:target ~ section.rotate {
+  left: 0;
+  width: 100%;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+}
+.slider #slider-default:target ~ section.rotate[default]:first-of-type,
+.slider > section.rotate:target {
+  -webkit-transform: none;
+  transform: none;
+}
+.slider > section.zoom {
+  left: 0;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit--webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transition: -ms--webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: -ms-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transition: -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transform: scale(3);
+  transform: scale(3);
+}
+.slider #slider-default:target ~ section[default]:first-of-type ~ section.zoom,
+.slider > section:target ~ section.zoom {
+  left: 0;
+  width: 100%;
+  -webkit-transform: scale(0.3);
+  transform: scale(0.3);
+}
+.slider #slider-default:target ~ section.zoom[default]:first-of-type,
+.slider > section.zoom:target {
+  -webkit-transform: none;
+  transform: none;
+}
+.slider > section.flip {
+  left: 0;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit--webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transition: -ms--webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: -ms-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transition: -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  transition: transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  -webkit-transform: rotateY(-90deg);
+  transform: rotateY(-90deg);
+}
+.slider #slider-default:target ~ section[default]:first-of-type ~ section.flip,
+.slider > section:target ~ section.flip {
+  left: 0;
+  width: 100%;
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+.slider #slider-default:target ~ section.flip[default]:first-of-type,
+.slider > section.flip:target {
+  -webkit-transform: none;
+  transform: none;
+}
