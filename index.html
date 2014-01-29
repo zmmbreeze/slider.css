@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Slider.css</title>
-    <link rel="stylesheet/less" href="src/slider.less" />
-    <script type="text/javascript" src="less-1.5.0.min.js"></script>
+    <link rel="stylesheet" href="slider.css" />
     <style type="text/css">
     body {
         margin: 0;
@@ -18,40 +17,13 @@
         width: 640px;
     }
 
-    .container {
-        float: left;
-        margin-right: 10px;
-        clear: left;
-        position: relative;
-        width: 300px;
-        height: 190px;
-        overflow: hidden;
-        background: #E6E9ED;
-    }
-    .container > [demo] {
-        background: #3BAFDA;
-        -webkit-transition: all ease-in-out 0.5s;
-        transition: all ease-in-out 0.5s;
-    }
-
-    .text {
-        overflow: hidden;
-    }
-    .text pre {
-        margin: 0;
-        padding: 0;
-        line-height: 16px;
-        font-size: 14px;
-        background: #FEFEFE;
-    }
-
     </style>
 </head>
 <body>
 <div class="placeholder">
     <div style="width: 640px;height: 400px;">
 
-    <input id="slider-max" type="checkbox"/>
+    <input id="slider-max" type="checkbox" checked/>
     <article class="slider slider-indicator">
     <a id="slider-default"></a>
     <label for="slider-max" title="Maximize"></label>
@@ -141,9 +113,10 @@
 
     <section id="slider-7" class="zoom">
         <div class="center">
-            <pre>&lt;div style=&quot;width: 640px;height: 400px;&quot;&gt;
+            <pre>&lt;link rel="stylesheet" href="/some/path/slider.css" /&gt;
+&lt;div style=&quot;width: 640px;height: 400px;&quot;&gt;
     &lt;!-- Maximize  --&gt;
-    &lt;input id=&quot;slider-max&quot; type=&quot;checkbox&quot;/&gt;
+    &lt;input id=&quot;slider-max&quot; type=&quot;checkbox&quot; checked/&gt;
     &lt;article class=&quot;slider slider-indicator&quot;&gt;
     &lt;a id=&quot;slider-default&quot;&gt;&lt;/a&gt;
     &lt;label for=&quot;slider-max&quot; title=&quot;Maximize&quot;&gt;&lt;/label&gt;
@@ -165,7 +138,7 @@
 
     &lt;!-- start page --&gt;
     &lt;div id=&quot;slider&quot;&gt;
-        &lt;a href=&quot;#slider-default&quot; class=&quot;slider-start&quot;&gt;GO TO START&lt;/a&gt;
+        &lt;a href=&quot;#slider-default&quot; class=&quot;slider-start&quot;&gt;PLAY&lt;/a&gt;
     &lt;/div&gt;
 
     &lt;!-- progressbar container --&gt;
@@ -181,83 +154,21 @@
     </div>
 
     <section id="slider-8" class="flip">
-    <div class="row">
-        <div class="container">
-            <div class="demo-7" demo></div>
+        <div class="center">
+            <h2>THE END</h2>
+            <p>
+                <a href="https://github.com/zmmbreeze/slider.css" target="_blank">GITHUB</a>
+            </p>
         </div>
-        <div class="text">
-            <h2>垂直居中</h2>
-            <pre>.demo-7 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-    margin: auto 0;
-}</pre>
-        </div>
-    </div>
     </section>
     <div>
         <a href="#slider-7"></a>
-        <a href="#slider-9"></a>
-        <span></span>
-    </div>
-
-    <section id="slider-9" class="rotate-down">
-    <div class="row">
-        <div class="container">
-            <div class="demo-8" demo></div>
-        </div>
-        <div class="text">
-            <h2>居中</h2>
-            <pre>.demo-8 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-}</pre>
-        </div>
-    </div>
-    </section>
-    <div>
-        <a href="#slider-8"></a>
-        <a href="#slider-10"></a>
-        <span></span>
-    </div>
-
-    <section id="slider-10">
-    <div class="row">
-        <div class="container">
-            <img class="demo-9" demo src="http://placehold.it/600x400/3BAFDA/FFFFFF" width="600" height="400"/>
-        </div>
-        <div class="text">
-            <h2>图片居中</h2>
-            <pre>img.demo-9 {
-    position: absolute;
-    top: -10000px;
-    left: -10000px;
-    right: -10000px;
-    bottom: -10000px;
-    margin: auto;
-}</pre>
-        </div>
-    </div>
-    </section>
-    <div>
-        <a href="#slider-9"></a>
         <a></a>
         <span></span>
     </div>
 
     <div id="slider">
-        <a href="#slider-default" class="slider-start">GO TO START</a>
+        <a href="#slider-default" class="slider-start">PLAY</a>
     </div>
 
     <div class="slider-progress"></div>
@@ -265,29 +176,5 @@
 
     </div>
 </div>
-
-    <script type="text/javascript">
-        var pres = document.getElementsByTagName('pre');
-        var pre;
-        var styles;
-        var style;
-        for (var i = 0, l = pres.length; i < l; i++) {
-            pre = pres[i];
-
-            // create style
-            style = document.createElement('style');
-            style.type = 'text/css';
-            pre.parentNode.insertBefore(style, pre);
-            styles = pre.innerHTML;
-            if (style.styleSheet) {
-                style.styleSheet.cssText = styles;
-            }
-            else {
-                style.appendChild(document.createTextNode(styles));
-            }
-
-            // beautify code
-        }
-    </script>
 </body>
 </html>
