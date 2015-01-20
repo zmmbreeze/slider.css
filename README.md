@@ -3,7 +3,7 @@ Slider.css
 
 HTML presentation without javascript.
 
-[DEMO](http://nodejs.in/slider.css/)
+[DEMO](http://zencode.in/slider.css/)
 
 Feature
 --
@@ -20,7 +20,7 @@ How to start
 
 Put the code below into your page.
 
-    <link rel="stylesheet" href="http://nodejs.in/slider.css/slider.css" />
+    <link rel="stylesheet" href="http://zencode.in/slider.css/slider.css" />
     <div style="width: 640px;height: 400px;">
         <!-- Maximize  -->
         <input id="slider-max" type="checkbox" checked/>
